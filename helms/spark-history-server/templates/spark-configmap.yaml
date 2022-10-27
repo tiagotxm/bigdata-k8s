@@ -1,0 +1,11 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: {{ template "spark-hs.fullname" . }}-spark-hs-config
+data:
+  spark-defaults.conf: |-
+    spark.hadoop.fs.s3a.endpoint=http://10.96.128.13:9000
+    spark.hadoop.fs.s3a.access.key=admin
+    spark.hadoop.fs.s3a.secret.key=adminadmin
+    spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem
+    spark.hadoop.fs.s3a.aws.credentials.provider=org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider
